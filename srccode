@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    h2 {
+      margin: 10px 0;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Jurassic_World_Dominion_poster.jpg" alt="Movie Poster">
+    <h2>Jurassic World</h2>
+    <label for="time">Choose Showtime:</label>
+    <select id="time">
+      <option value="150">10:00 AM - Rs.150</option>
+      <option value="200">1:00 PM - Rs.200</option>
+      <option value="250">6:00 PM - Rs.250</option>
+    </select>
+
+    <label for="tickets">Number of Tickets:</label>
+    <input type="number" id="tickets" value="1" min="1">
+
+    <button onclick="bookTickets()">Book Now</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function bookTickets() {
+      const ticketPrice = document.getElementById("time").value;
+      const numTickets = document.getElementById("tickets").value;
+      const total = ticketPrice * numTickets;
+      
+      document.getElementById("result").innerText = `✅ You booked ${numTickets} ticket(s). Total: Rs.${total}`;
+    }
+  </script>
+</body>
+</html>
